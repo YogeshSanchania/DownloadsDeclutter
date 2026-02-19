@@ -1,0 +1,25 @@
+# Visual Studio generated files
+.vs/
+x64/
+Debug/
+Release/
+*.iobj
+*.ipch
+*.pdb
+*.ilk
+*.obj
+*.tlog
+*.log
+*.idb
+*.aps
+*.user
+*.res
+*.pch
+
+# Windows / System
+Thumbs.db
+Desktop.ini
+
+# Build artifacts (keep your source .cpp, .h, .rc, .ico)
+*.exe
+*.msi

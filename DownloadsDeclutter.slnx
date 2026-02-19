@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DownloadsDeclutter/DownloadsDeclutter.vcxproj" Id="a34e8319-de33-4dd6-a741-362e1fabd464" />
+</Solution>
