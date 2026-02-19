@@ -2,6 +2,7 @@
 ; -----------------------------------------
 
 [Setup]
+AppId={{9A1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}
 AppName=Downloads Declutter
 AppVersion=1.0
 AppPublisher=Declutter Tools
@@ -15,6 +16,8 @@ SolidCompression=yes
 MinVersion=6.2
 PrivilegesRequired=admin
 
+;-- UI Improvements ---
+WizardStyle=modern
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
@@ -39,3 +42,14 @@ Root: HKCU; Subkey: "Software\Classes\Directory\Background\shell\DownloadsDeclut
 
 [Run]
 Filename: "{app}\DownloadsDeclutter.exe"; Description: "Launch Downloads Declutter"; Flags: nowait postinstall skipifsilent
+; --- FIX FOR MINIMIZED / HIDDEN INSTALLER ---
+[Code]
+// Import the native Windows API function to force a window to the foreground
+function SetForegroundWindow(hWnd: HWND): BOOL; external 'SetForegroundWindow@user32.dll stdcall';
+
+procedure InitializeWizard();
+begin
+  // Force the installer wizard to the center and front of the screen immediately
+  WizardForm.Position := poScreenCenter;
+  SetForegroundWindow(WizardForm.Handle);
+end;
